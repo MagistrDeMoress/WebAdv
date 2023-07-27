@@ -22,3 +22,8 @@ urlpatterns = [
     path('', include('app_advertisements.urls')),
     path('', include('app_lesson_4.urls'))
 ]
+
+
+# SELECT Surname          INSERT INTO students (Name, Surname, Age)
+# FROM students           VALUES ('Данил', 'Христолюбов', 16);
+# WHERE Age > 15;
