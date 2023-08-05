@@ -10,4 +10,4 @@ class Advertisement(models.Model):
     class Meta:
         db_table = 'Advertisement'
     def __str__(self):
-        return f'{self.title}, {self.description}, {self.price}, {self.auction}'
+        return f'Advertisement(id={self.id}, title={self.title}, price={self.price})'
