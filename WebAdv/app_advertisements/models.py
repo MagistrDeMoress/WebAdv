@@ -8,7 +8,7 @@ class Advertisement(models.Model):
     price = models.DecimalField('цена', max_digits=10, decimal_places=2)
     auction = models.BooleanField('торг', help_text='Отметьте, если торг уместен')
     created_at = models.DateTimeField(auto_now_add=True) #auto_now_add - работает 1 раз
-    update_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
     @admin.display(description='заголовок')
     def blue_title(self):
@@ -22,12 +22,12 @@ class Advertisement(models.Model):
             return format_html('<span style="color: green"; font-weight: bold;">Сегодня в {}</span>', created_time)
         return self.created_at.strftime('%d.%m.%Y в %H:%M:%S')
     @admin.display(description='дата обновления')
-    def update_date(self):
+    def updated_date(self):
         from django.utils import timezone
-        if self.update_at.date() == timezone.now().date():
-            updated_time = self.update_at.time().strftime('%H:%M:%S')
+        if self.updated_at.date() == timezone.now().date():
+            updated_time = self.updated_at.time().strftime('%H:%M:%S')
             return format_html('<span style="color: green"; font-weight: bold;">Сегодня в {}</span>', updated_time)
-        return self.created_at.strftime('%d.%m.%Y в %H:%M:%S')
+        return self.updated_at.strftime('%d.%m.%Y в %H:%M:%S')
         
     class Meta:
         db_table = 'Advertisement'
