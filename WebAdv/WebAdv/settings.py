@@ -56,7 +56,7 @@ ROOT_URLCONF = 'WebAdv.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [Path.joinpath(BASE_DIR, 'templates')],
+        'DIRS': [Path.joinpath(BASE_DIR, 'templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'WebAdv.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3/',
     }
 }
 
@@ -120,9 +120,14 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    Path.joinpath(BASE_DIR, 'static')
+    Path.joinpath(BASE_DIR, 'static/')
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media/')
+
+MEDIA_URL = 'media/'
